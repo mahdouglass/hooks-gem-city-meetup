@@ -2,76 +2,51 @@
 
 ---
 
-## Add Some Slide Candy
-
-![IMAGE](assets/img/presentation.png)
-
----?color=linear-gradient(180deg, white 75%, black 25%)
-@title[Customize Slide Layout]
-
-@snap[west span-50]
-## Customize the Layout
-@snapend
-
-@snap[east span-50]
-![IMAGE](assets/img/presentation.png)
-@snapend
-
-@snap[south span-100 text-white]
-Snap Layouts let you create custom slide designs directly within your markdown.
-@snapend
-
----?color=linear-gradient(90deg, #5384AD 65%, white 35%)
-@title[Add A Little Imagination]
-
-@snap[north-west h4-white]
-#### And start presenting...
-@snapend
-
-@snap[west span-55]
-@ul[list-spaced-bullets text-white text-09]
-- You will be amazed
-- What you can achieve
-- *With a little imagination...*
-- And **GitPitch Markdown**
-@ulend
-@snapend
-
-@snap[east span-45]
-@img[shadow](assets/img/conference.png)
-@snapend
+## Me
 
 ---
 
-@snap[north-east span-100 text-pink text-06]
-Let your code do the talking!
-@snapend
+## Should I Use Hooks?
 
-```sql zoom-18
-CREATE TABLE "topic" (
-    "id" serial NOT NULL PRIMARY KEY,
-    "forum_id" integer NOT NULL,
-    "subject" varchar(255) NOT NULL
-);
-ALTER TABLE "topic"
-ADD CONSTRAINT forum_id
-FOREIGN KEY ("forum_id")
-REFERENCES "forum" ("id");
-```
+@ul
+- Optional
+- Backwards-compatible
+- Added in 16.8
+- No plans to remove classes
+@ulend
 
-@snap[south span-100 text-gray text-08]
-@[1-5](You can step-and-ZOOM into fenced-code blocks, source files, and Github GIST.)
-@[6,7, zoom-13](Using GitPitch live code presenting with optional annotations.)
-@[8-9, zoom-12](This means no more switching between your slide deck and IDE on stage.)
-@snapend
+---
 
+## Why Was it Added?
 
----?image=assets/img/presenter.jpg
+Hooks were added to allow a more powerful and expressive way to write state and other features between components without writing a class.
 
-@snap[north span-100 h2-white]
-## Now It's Your Turn
-@snapend
+@ul
+- Difficult to reuse stateful logic between components
+-- Hooks allow you to reuse without changing component hierarchy
+- Complex components become more...complex
+-- Hooks help you split components into smaller functions
+- Classes are confusing
+-- Need to know how "this" works
+-- Have to remember to bind event handlers
+-- Code is verbose
+- Hooks let you use more of React's features without classes
+- Make what you're already doing easer
+@ulend
 
-@snap[south span-100 text-06]
-[Click here to jump straight into the interactive feature guides in the GitPitch Docs @fa[external-link]](https://gitpitch.com/docs/getting-started/tutorial/)
-@snapend
+---
+
+## When Should I Start Using Hooks?
+
+"When you’re ready, we’d encourage you to start trying Hooks in new components you write. Make sure everyone on your team is on board with using them and familiar with this documentation. We don’t recommend rewriting your existing classes to Hooks unless you planned to rewrite them anyway (e.g. to fix bugs)." - React team https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both
+
+---
+
+## Hooks
+
+@ul
+- There are 10 hooks so far
+- All start with "use"
+- useState(): functional component can have and update local state
+- useEffect(): 
+@ulend
