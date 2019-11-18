@@ -8,9 +8,9 @@
 theme : template
 
 theme-background : [ "#092247" ]
-theme-headline   : [ "Raleway", "#3ce6bd", "none" ]
-theme-byline     : [ "Raleway", "#111111", "none" ]
-theme-text       : [ "Ubuntu", "#1C1C1C", "none" ]
+theme-headline   : [ "Raleway", "#092247", "none" ]
+theme-byline     : [ "Raleway", "#092247", "none" ]
+theme-text       : [ "Ubuntu", "#CCC", "none" ]
 theme-links      : [ "#5289F7", "#5254F7" ]
 theme-code       : [ "Source Code Pro" ]
 theme-controls   : [ "#484848" ]
