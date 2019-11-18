@@ -1,38 +1,76 @@
-# The Power of Hooks
+## The Power of Hooks
 
 ---
 
-## Me
+### Me
 
 ---
 
-## Should I Use Hooks?
+### Should I Use Hooks?
 
-@ul
 - Optional
 - Backwards-compatible
 - Added in 16.8
 - No plans to remove classes
-@ulend
 
 ---
+
+### Hooks
+
+- There are 10 hooks so far
+- All start with "use"
+- useState(): functional component can have and update local state
+- useEffect(): 
+
+---
+
+@snap[northwest span-50 text-08 fragment]
+import React, { Component } from 'react';
+
+class Counter extends Component {
+    constructor() {
+        super();
+        This.state = {
+            This.count = 1;
+        }}
+    handleClick = () => {
+        this.setState = (prevState => ({count: prevState.count + 1})); }
+    render() {
+        const {count} = this.state;
+        return (
+            <div><button onClick={this.handleClick}>{count}</button></div>
+        )
+    }
+}
+@snapend
+
+@snap[northeast span-50 text-08 fragment]
+import React, {useState} from ‘react’;
+const [count, setCount] = useState(1);
+const handleClick = () => this.setCount(count + 1);
+const Counter = () => {
+    return (
+        <div><button onClick={this.handleClick}>{count}</button></div>
+    );
+}
+@snapend
+
+====
 
 ## Why Was it Added?
 
 Hooks were added to allow a more powerful and expressive way to write state and other features between components without writing a class.
 
-@ul
 - Difficult to reuse stateful logic between components
 -- Hooks allow you to reuse without changing component hierarchy
 - Complex components become more...complex
--- Hooks help you split components into smaller functions
+- Hooks help you split components into smaller functions
 - Classes are confusing
 -- Need to know how "this" works
 -- Have to remember to bind event handlers
 -- Code is verbose
 - Hooks let you use more of React's features without classes
 - Make what you're already doing easer
-@ulend
 
 ---
 
