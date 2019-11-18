@@ -70,6 +70,8 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+### Class example
+
 @snap[northwest text-08 fragment]
 
 ```javascript
@@ -95,7 +97,9 @@ class Counter extends Component {
 
 ---
 
-@snap[northwest span-50 text-08 fragment]
+### useState
+
+@snap[northwest span-55 text-08]
 ```javascript
 import React, {useState} from ‘react’;
 const [count, setCount] = useState(0);
@@ -108,7 +112,7 @@ const Counter = () => {
 ```
 @snapend
 
-@snap[northeast span-50 text-08 fragment]
+@snap[southwest span-55 text-08]
 ```javascript
 import React, {useState} from ‘react’;
 const [count, setCount] = useState(0);
@@ -123,15 +127,17 @@ const Counter = () => {
 
 ---
 
+### useEffect
+@snap[north span-100 text-10]
 ```javascript
 import React, {useState, useEffect} from ‘react’;
 const [count, setCount] = useState(0);
 
 // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
+useEffect(() => {
     // Update the document title using the browser API
     document.title = `You clicked ${count} times`;
-  });
+});
 
 const Counter = () => {
     return (
@@ -139,3 +145,4 @@ const Counter = () => {
     );
 }
 ```
+@snapend
