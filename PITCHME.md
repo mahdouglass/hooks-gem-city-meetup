@@ -2,11 +2,21 @@
 
 ---
 
+@snap[north]
 ### Me
+@snapend
+
+@snap
+Marissa Douglass
+Web developer at Prudential
+@mahdouglass
+@snapend
 
 ---
 
+@snap[north]
 ### Should I Use Hooks?
+@snapend
 
 @ul
 - Optional
@@ -17,12 +27,17 @@
 
 ---
 
+@snap[north]
 ### Why Was it Added?
+@snapend
 
 Hooks were added to allow a more powerful and expressive way to write state and other features between components without writing a class.
 
 ---
+
+@snap[north]
 ### Why Was it Added?
+@snapend
 
 @ul
 - Difficult to reuse stateful logic between components
@@ -35,20 +50,17 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+@snap[north]
 ### When Should I Start Using Hooks?
+@snapend
 
 "When you’re ready, we’d encourage you to start trying Hooks in new components you write... We don’t recommend rewriting your existing classes to Hooks unless you planned to rewrite them anyway (e.g. to fix bugs)." - [React team](https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both)
 
 ---
 
+@snap[north]
 ### Hooks
-
-- There are 10 hooks so far
-- All start with "use"
-
----
-
-### Hooks
+@snapend
 
 @ul
 - useState: functional component can have and update local state
@@ -70,7 +82,9 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+@snap[north]
 ### Class example - useState
+@snapend
 
 @snap[northwest text-08 fragment]
 
@@ -84,11 +98,16 @@ class Counter extends Component {
             this.count = 0;
         }}
     handleClick = () => {
-        this.setState = (prevState => ({count: prevState.count + 1})); }
+        this.setState = (prevState => ({count: prevState.count + 1}));
+    }
     render() {
         const {count} = this.state;
         return (
-            <div><button onClick={this.handleClick}>{count}</button></div>
+            <div>
+                <button onClick={this.handleClick}>
+                    {count}
+                </button>
+            </div>
         )
     }
 }
@@ -96,17 +115,22 @@ class Counter extends Component {
 @snapend
 
 ---
-
+@snap[north]
 ### useState
+@snapend
 
-@snap[northwest span-55 text-08]
+@snap[northwest span-100 text-08]
 ```javascript
 import React, {useState} from ‘react’;
 const [count, setCount] = useState(0);
 const handleClick = () => this.setCount(count + 1);
 const Counter = () => {
     return (
-        <div><button onClick={this.handleClick}>{count}</button></div>
+        <div>
+            <button onClick={this.handleClick}>
+                {count}
+            </button>
+        </div>
     );
 }
 ```
@@ -119,17 +143,22 @@ const [count, setCount] = useState(0);
 
 const Counter = () => {
     return (
-        <div><button onClick={() => setCount(count + 1)}>{count}</button></div>
+        <div>
+            <button onClick={() => setCount(count + 1)}>
+                {count}
+            </button>
+        </div>
     );
 }
 ```
 @snapend
 
 ---
-
+@snap[north]
 ### Class example - useEffect
+@snapend
 
-@snap[north span-100 text-10]
+@snap[span-100 text-10]
 ```javascript
 class Counter extends Component {
     constructor(props) {
