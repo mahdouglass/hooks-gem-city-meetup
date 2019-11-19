@@ -82,6 +82,17 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+### Tips
+
+- Don't call hooks inside loops, conditions, or nested functions
+- Call hooks in React functions not regular JavaScript functions
+- Recommended plugin:
+```git
+npm install eslint-plugin-react-hooks --save-dev
+```
+
+---
+
 @snap[north]
 ### Class example - useState
 @snapend
@@ -115,6 +126,7 @@ class Counter extends Component {
 @snapend
 
 ---
+
 @snap[north]
 ### useState
 @snapend
@@ -154,6 +166,7 @@ const Counter = () => {
 @snapend
 
 ---
+
 @snap[north]
 ### Class example - useEffect
 @snapend
@@ -218,3 +231,18 @@ function Example() {
 }
 ```
 @snapend
+
+---
+
+@snap[north]
+### Custom Hooks
+@snapend
+
+@ul
+- Just a regular function
+- Same naming convention, start with use
+- May call other hooks
+- Custom arguments
+- Optional return
+- All state and effects are isolated
+@ulend
