@@ -70,6 +70,8 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+### Class example - useState
+
 @snap[northwest text-08 fragment]
 
 ```javascript
@@ -95,7 +97,9 @@ class Counter extends Component {
 
 ---
 
-@snap[northwest span-50 text-08 fragment]
+### useState
+
+@snap[northwest span-55 text-08]
 ```javascript
 import React, {useState} from ‘react’;
 const [count, setCount] = useState(0);
@@ -108,7 +112,7 @@ const Counter = () => {
 ```
 @snapend
 
-@snap[northeast span-50 text-08 fragment]
+@snap[southwest span-55 text-08]
 ```javascript
 import React, {useState} from ‘react’;
 const [count, setCount] = useState(0);
@@ -123,19 +127,65 @@ const Counter = () => {
 
 ---
 
-```javascript
-import React, {useState, useEffect} from ‘react’;
-const [count, setCount] = useState(0);
+### Class example - useEffect
 
-// Similar to componentDidMount and componentDidUpdate:
+@snap[north span-100 text-10]
+```javascript
+class Counter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
+
+    // Updates after component is rendered
+    componentDidMount() {
+        document.title = `You clicked ${this.state.count} times`;
+    }
+
+    // Updates after each state change
+    componentDidUpdate() {
+        document.title = `You clicked ${this.state.count} times`;
+    }
+
+    render() {
+        return (
+            <div>
+                <p>You clicked {this.state.count} times</p>
+                <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+                    Click me
+                </button>
+            </div>
+        );
+    }
+}
+```
+@snapend
+
+---
+
+ ### useEffect
+
+@snap[north span-100 text-10]
+ ```javascript
+ import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
-    // Update the document title using the browser API
     document.title = `You clicked ${count} times`;
   });
 
-const Counter = () => {
-    return (
-        <div><button onClick={() => setCount(count + 1)}>{count}</button></div>
-    );
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
 }
 ```
+@snapend
