@@ -2,11 +2,25 @@
 
 ---
 
+@snap[north]
 ### Me
+@snapend
+
+@snap[west span-50]
+Marissa Douglass
+Web developer at Prudential
+![Twitter logo](assets/img/twitter.png) @mahdouglass
+@snapend
+
+@snap[east span-50]
+![Marissa Douglass](assets/img/profile-pic)
+@snapend
 
 ---
 
+@snap[north]
 ### Should I Use Hooks?
+@snapend
 
 @ul
 - Optional
@@ -17,12 +31,17 @@
 
 ---
 
+@snap[north]
 ### Why Was it Added?
+@snapend
 
 Hooks were added to allow a more powerful and expressive way to write state and other features between components without writing a class.
 
 ---
+
+@snap[north]
 ### Why Was it Added?
+@snapend
 
 @ul
 - Difficult to reuse stateful logic between components
@@ -35,20 +54,17 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+@snap[north]
 ### When Should I Start Using Hooks?
+@snapend
 
 "When you’re ready, we’d encourage you to start trying Hooks in new components you write... We don’t recommend rewriting your existing classes to Hooks unless you planned to rewrite them anyway (e.g. to fix bugs)." - [React team](https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both)
 
 ---
 
+@snap[north]
 ### Hooks
-
-- There are 10 hooks so far
-- All start with "use"
-
----
-
-### Hooks
+@snapend
 
 @ul
 - useState: functional component can have and update local state
@@ -70,7 +86,20 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+### Tips
+
+- Don't call hooks inside loops, conditions, or nested functions
+- Call hooks in React functions not regular JavaScript functions
+- Recommended plugin:
+```git
+npm install eslint-plugin-react-hooks --save-dev
+```
+
+---
+
+@snap[north]
 ### Class example - useState
+@snapend
 
 @snap[northwest text-08 fragment]
 
@@ -84,11 +113,16 @@ class Counter extends Component {
             this.count = 0;
         }}
     handleClick = () => {
-        this.setState = (prevState => ({count: prevState.count + 1})); }
+        this.setState = (prevState => ({count: prevState.count + 1}));
+    }
     render() {
         const {count} = this.state;
         return (
-            <div><button onClick={this.handleClick}>{count}</button></div>
+            <div>
+                <button onClick={this.handleClick}>
+                    {count}
+                </button>
+            </div>
         )
     }
 }
@@ -97,16 +131,22 @@ class Counter extends Component {
 
 ---
 
+@snap[north]
 ### useState
+@snapend
 
-@snap[northwest span-55 text-08]
+@snap[northwest span-100 text-08]
 ```javascript
 import React, {useState} from ‘react’;
 const [count, setCount] = useState(0);
 const handleClick = () => this.setCount(count + 1);
 const Counter = () => {
     return (
-        <div><button onClick={this.handleClick}>{count}</button></div>
+        <div>
+            <button onClick={this.handleClick}>
+                {count}
+            </button>
+        </div>
     );
 }
 ```
@@ -119,7 +159,11 @@ const [count, setCount] = useState(0);
 
 const Counter = () => {
     return (
-        <div><button onClick={() => setCount(count + 1)}>{count}</button></div>
+        <div>
+            <button onClick={() => setCount(count + 1)}>
+                {count}
+            </button>
+        </div>
     );
 }
 ```
@@ -127,9 +171,11 @@ const Counter = () => {
 
 ---
 
+@snap[north]
 ### Class example - useEffect
+@snapend
 
-@snap[north span-100 text-10]
+@snap[span-100 text-10]
 ```javascript
 class Counter extends Component {
     constructor(props) {
@@ -189,3 +235,18 @@ function Example() {
 }
 ```
 @snapend
+
+---
+
+@snap[north]
+### Custom Hooks
+@snapend
+
+@ul
+- Just a regular function
+- Same naming convention, start with use
+- May call other hooks
+- Custom arguments
+- Optional return
+- All state and effects are isolated
+@ulend
