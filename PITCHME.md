@@ -6,10 +6,14 @@
 ### Me
 @snapend
 
-@snap
+@snap[west span-50]
 Marissa Douglass
 Web developer at Prudential
-@mahdouglass
+![Twitter logo](assets/img/twitter.png) @mahdouglass
+@snapend
+
+@snap[east span-50]
+![Marissa Douglass](assets/img/profile-pic)
 @snapend
 
 ---
