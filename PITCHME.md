@@ -70,7 +70,7 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
-### Class example
+### Class example - useState
 
 @snap[northwest text-08 fragment]
 
@@ -127,22 +127,65 @@ const Counter = () => {
 
 ---
 
-### useEffect
+### Class example - useEffect
+
 @snap[north span-100 text-10]
 ```javascript
-import React, {useState, useEffect} from ‘react’;
-const [count, setCount] = useState(0);
+class Counter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
 
-// Similar to componentDidMount and componentDidUpdate:
-useEffect(() => {
-    // Update the document title using the browser API
+    // Updates after component is rendered
+    componentDidMount() {
+        document.title = `You clicked ${this.state.count} times`;
+    }
+
+    // Updates after each state change
+    componentDidUpdate() {
+        document.title = `You clicked ${this.state.count} times`;
+    }
+
+    render() {
+        return (
+            <div>
+                <p>You clicked {this.state.count} times</p>
+                <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+                    Click me
+                </button>
+            </div>
+        );
+    }
+}
+```
+@snapend
+
+---
+
+ ### useEffect
+
+@snap[north span-100 text-10]
+ ```javascript
+ import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
     document.title = `You clicked ${count} times`;
-});
+  });
 
-const Counter = () => {
-    return (
-        <div><button onClick={() => setCount(count + 1)}>{count}</button></div>
-    );
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
 }
 ```
 @snapend
