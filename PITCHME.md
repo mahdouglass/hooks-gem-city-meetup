@@ -7,31 +7,18 @@
 @snapend
 
 @snap[west span-50]
-Marissa Douglass
+#### Marissa Douglass
 Web developer at Prudential
-![Twitter logo](assets/img/twitter.png) @mahdouglass
+@mahdouglass
 @snapend
 
 @snap[east span-50]
-![Marissa Douglass](assets/img/profile-pic)
+![Marissa Douglass](assets/img/profile-pic.jpg)
 @snapend
 
 ---
 
-@snap[north]
-### Should I Use Hooks?
-@snapend
-
-@ul
-- Optional
-- Backwards-compatible
-- Added in 16.8
-- No plans to remove classes
-@ulend
-
----
-
-@snap[north]
+@snap[north span-100]
 ### Why Was it Added?
 @snapend
 
@@ -39,26 +26,43 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
-@snap[north]
+@snap[north span-100]
 ### Why Was it Added?
 @snapend
 
+@snap
 @ul
 - Difficult to reuse stateful logic between components
-- Hooks allow you to reuse without changing component hierarchy
-- Hooks help you split components into smaller functions
 - Classes are confusing
 - Hooks let you use more of React's features without classes
-- Make what you're already doing easer
+- Don't have to change component hierarchy
+- Can split components into smaller functions
+- Make what you're already doing easier
+@ulend
+@snapend
+
+---
+
+@snap[north span-100]
+### Should I Use Hooks?
+@snapend
+
+@ul
+- Added in 16.8
+- No plans to remove classes
+- Optional
+- Backwards-compatible
 @ulend
 
 ---
 
-@snap[north]
+@snap[north span-100]
 ### When Should I Start Using Hooks?
 @snapend
 
+@snap
 "When you’re ready, we’d encourage you to start trying Hooks in new components you write... We don’t recommend rewriting your existing classes to Hooks unless you planned to rewrite them anyway (e.g. to fix bugs)." - [React team](https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both)
+@snapend
 
 ---
 
@@ -74,57 +78,56 @@ Hooks were added to allow a more powerful and expressive way to write state and 
 
 ---
 
+@snap[north]
 ### Hooks
+@snapend
 
+@ul
 - useReducer
 - useCallback
 - useMemo
 - useRef
 - useImperativeHandle
 - useLayoutEffect
-- useDebug Value
+- useDebugValue
+@ulend
 
 ---
 
 ### Tips
 
+@ul
 - Don't call hooks inside loops, conditions, or nested functions
 - Call hooks in React functions not regular JavaScript functions
 - Recommended plugin:
 ```git
 npm install eslint-plugin-react-hooks --save-dev
 ```
+@ulend
 
 ---
 
-@snap[north]
+@snap[north span-100]
 ### Class example - useState
 @snapend
 
 @snap[northwest text-08 fragment]
 
 ```javascript
-import React, { Component } from 'react';
-
-class Counter extends Component {
-    constructor() {
-        super();
-        this.state = {
-            this.count = 0;
-        }}
-    handleClick = () => {
-        this.setState = (prevState => ({count: prevState.count + 1}));
-    }
-    render() {
-        const {count} = this.state;
-        return (
-            <div>
-                <button onClick={this.handleClick}>
-                    {count}
-                </button>
-            </div>
-        )
-    }
+class ClassCounter extends Component {
+ constructor() {
+   super();
+   this.state = {
+     count: 0
+   };
+ }
+ render() {
+   return (
+     <div>
+       <button onClick={() => this.setState({ count: this.state.count + 1 })}>{this.state.count}</button>
+     </div>
+   );
+ }
 }
 ```
 @snapend
@@ -215,7 +218,7 @@ class Counter extends Component {
 
 @snap[north span-100 text-10]
  ```javascript
- import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
